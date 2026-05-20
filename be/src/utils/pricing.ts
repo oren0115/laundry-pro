@@ -1,5 +1,4 @@
-import type { MembershipLevel, ServiceType } from "@prisma/client";
-import { Decimal } from "@prisma/client/runtime/library";
+import { Prisma, type MembershipLevel, type ServiceType } from "@prisma/client";
 
 const MEMBERSHIP_DISCOUNT: Record<MembershipLevel, number> = {
   BRONZE: 0,
@@ -62,7 +61,7 @@ export function calculateOrderTotal(input: PricingInput) {
 }
 
 function round2(n: number) {
-  return new Decimal(n.toFixed(2));
+  return new Prisma.Decimal(n.toFixed(2));
 }
 
 export function estimateFinishDate(serviceType: ServiceType): Date {
