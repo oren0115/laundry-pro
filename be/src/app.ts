@@ -1,4 +1,5 @@
 import express, { type Express } from "express";
+import path from "path";
 import cors from "cors";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
@@ -27,6 +28,10 @@ app.use(
 );
 
 app.get("/health", (_req, res) => res.json({ status: "ok" }));
+app.use(
+  "/api/uploads/public",
+  express.static(path.resolve(process.cwd(), "uploads", "public"))
+);
 app.use("/api", routes);
 
 app.use((_req, res) => error(res, "Endpoint tidak ditemukan", 404));

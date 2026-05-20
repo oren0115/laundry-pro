@@ -358,3 +358,14 @@ model PasswordReset {
 
   @@map("password_resets")
 }
+
+/// Konten halaman publik (landing, promo, hero) — dikelola OWNER
+model PublicContentConfig {
+  id        String   @id @default("default")
+  data      Json
+  updatedBy String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("public_content_configs")
+}

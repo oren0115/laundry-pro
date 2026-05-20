@@ -10,6 +10,8 @@ import employeeRoutes from "./employee.routes.js";
 import pickupRoutes from "./pickup.routes.js";
 import reportRoutes from "./report.routes.js";
 import userRoutes from "./user.routes.js";
+import publicRoutes from "./public.routes.js";
+import cmsRoutes from "./cms.routes.js";
 
 const router = Router();
 
@@ -24,5 +26,7 @@ router.use("/employees", employeeRoutes);
 router.use("/pickups", pickupRoutes);
 router.use("/reports", reportRoutes);
 router.use("/users", userRoutes);
+router.use("/public", publicRoutes);
+router.use("/cms", cmsRoutes);
 
 export default router;

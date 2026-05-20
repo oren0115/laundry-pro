@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
+import { seedPublicContentIfEmpty } from "../src/services/publicContent.service.js";
 
 const prisma = new PrismaClient();
 
@@ -125,6 +126,8 @@ async function main() {
     },
     include: { customer: true },
   });
+
+  await seedPublicContentIfEmpty();
 
   console.log("Seed completed!");
   console.log("Accounts (password: password123):");
