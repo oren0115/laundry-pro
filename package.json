@@ -1,0 +1,12 @@
+{
+  "name": "laundry",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r --parallel --stream --filter ./be --filter ./fe dev",
+    "dev:be": "pnpm --dir be dev",
+    "dev:fe": "pnpm --dir fe dev",
+    "build": "pnpm -r --filter ./be --filter ./fe build",
+    "build:be": "pnpm --dir be build",
+    "build:fe": "pnpm --dir fe build"
+  }
+}

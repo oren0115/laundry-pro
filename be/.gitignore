@@ -1,0 +1,7 @@
+.node_modules
+.dist
+.env
+.prisma
+.prisma/migrations
+.prisma/migrations/migration_lock.toml
+.prisma/migrations/migration_lock.toml
