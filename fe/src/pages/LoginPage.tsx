@@ -10,9 +10,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { BRAND_NAME } from "@/lib/brand";
 
 export function LoginPage() {
-  usePageMeta({ title: "Masuk", description: "Login pelanggan FreshFold — email, HP, atau Google." });
+  usePageMeta({ title: "Masuk", description: `Login pelanggan ${BRAND_NAME} — email, HP, atau Google.` });
   const { toast } = useToast();
   const [mode, setMode] = useState<"email" | "phone">("email");
   const [email, setEmail] = useState("");

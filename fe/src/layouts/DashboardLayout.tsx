@@ -35,6 +35,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { useSidebar } from "@/components/ui/sidebar-context";
+import { BRAND_NAME } from "@/lib/brand";
 
 const staffNav = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard, roles: ["OWNER", "ADMIN", "KASIR", "OPERATOR", "KURIR"] },
@@ -123,7 +124,7 @@ export function DashboardLayout() {
                   <ShoppingBag className="size-5" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold">LaundryPro</span>
+                  <span className="truncate font-semibold">{BRAND_NAME}</span>
                   <span className="truncate text-xs text-muted-foreground">
                     {user?.branch?.name ?? "Sistem Laundry"}
                   </span>
@@ -163,7 +164,7 @@ export function DashboardLayout() {
         <header className="sticky top-0 z-30 flex h-14 shrink-0 items-center gap-2 border-b bg-background/95 px-4 backdrop-blur supports-backdrop-filter:bg-background/80">
           <SidebarTrigger />
           <div className="flex flex-1 items-center justify-between gap-2">
-            <p className="text-sm font-medium md:hidden">LaundryPro</p>
+            <p className="text-sm font-medium md:hidden">{BRAND_NAME}</p>
             <div className="ml-auto flex items-center gap-2">
               <Button
                 variant="ghost"

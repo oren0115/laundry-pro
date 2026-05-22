@@ -1,21 +1,22 @@
 import type { PublicContentData } from "@/types/public-content";
+import { BRAND_NAME } from "@/lib/brand";
 
 /** Fallback saat API belum tersedia */
 export const DEFAULT_PUBLIC_CONTENT: PublicContentData = {
   site: {
-    name: "FreshFold",
+    name: BRAND_NAME,
     tagline: "Laundry modern dengan antar jemput & tracking real-time",
     phone: "6281234567890",
     email: "hello@freshfold.id",
     address: "Jl. Raya Sudirman No. 45, Jakarta Selatan",
     hours: "Senin – Minggu, 07.00 – 21.00 WIB",
-    whatsappMessage: "Halo FreshFold, saya ingin bertanya tentang layanan laundry.",
+    whatsappMessage: `Halo ${BRAND_NAME}, saya ingin bertanya tentang layanan laundry.`,
   },
   hero: {
     headline: "Laundry premium, sepraktis aplikasi on-demand",
     headlineHighlight: "sepraktis aplikasi on-demand",
     subheadline:
-      "FreshFold menggabungkan antar jemput, tracking realtime, dan pembayaran cashless — pengalaman modern tanpa antre di outlet.",
+      `${BRAND_NAME} menggabungkan antar jemput, tracking realtime, dan pembayaran cashless — pengalaman modern tanpa antre di outlet.`,
     badges: ["Express 24 Jam", "Pickup & Delivery", "1000+ Pelanggan"],
     socialProof: "2.500+ pelanggan aktif bulan ini",
     images: {

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { BRAND_FULL_NAME } from "@/lib/brand";
 
 export function usePageMeta({
   title,
@@ -8,7 +9,7 @@ export function usePageMeta({
   description?: string;
 }) {
   useEffect(() => {
-    const base = "FreshFold Laundry";
+    const base = BRAND_FULL_NAME;
     document.title = title ? `${title} | ${base}` : base;
 
     if (description) {

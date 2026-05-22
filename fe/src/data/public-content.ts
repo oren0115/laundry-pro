@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import { BRAND_NAME } from "@/lib/brand";
 import {
   Truck,
   Radar,
@@ -12,13 +13,13 @@ import {
 } from "lucide-react";
 
 export const SITE = {
-  name: "FreshFold",
+  name: BRAND_NAME,
   tagline: "Laundry modern dengan antar jemput & tracking real-time",
   phone: "6281234567890",
   email: "hello@freshfold.id",
   address: "Jl. Raya Sudirman No. 45, Jakarta Selatan",
   hours: "Senin – Minggu, 07.00 – 21.00 WIB",
-  whatsappMessage: "Halo FreshFold, saya ingin bertanya tentang layanan laundry.",
+  whatsappMessage: `Halo ${BRAND_NAME}, saya ingin bertanya tentang layanan laundry.`,
 } as const;
 
 export const STATS = [

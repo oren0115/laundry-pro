@@ -9,11 +9,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BRAND_NAME } from "@/lib/brand";
 
 export function ContactPage() {
   usePageMeta({
     title: "Kontak",
-    description: "Hubungi FreshFold — form pesan, lokasi cabang, jam operasional.",
+    description: `Hubungi ${BRAND_NAME} — form pesan, lokasi cabang, jam operasional.`,
   });
 
   const { toast } = useToast();
@@ -110,7 +111,7 @@ export function ContactPage() {
             <FadeIn delay={120}>
               <div className="overflow-hidden rounded-xl border">
                 <iframe
-                  title="Lokasi FreshFold"
+                  title={`Lokasi ${BRAND_NAME}`}
                   className="h-48 w-full sm:h-56"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

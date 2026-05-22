@@ -9,9 +9,10 @@ import { PublicAuthLayout } from "@/layouts/PublicAuthLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { BRAND_NAME } from "@/lib/brand";
 
 export function RegisterPage() {
-  usePageMeta({ title: "Daftar", description: "Buat akun pelanggan FreshFold gratis." });
+  usePageMeta({ title: "Daftar", description: `Buat akun pelanggan ${BRAND_NAME} gratis.` });
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", password: "", phone: "", address: "" });
   const [error, setError] = useState("");

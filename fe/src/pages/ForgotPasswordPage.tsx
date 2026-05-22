@@ -7,9 +7,10 @@ import { PublicAuthLayout } from "@/layouts/PublicAuthLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { BRAND_NAME } from "@/lib/brand";
 
 export function ForgotPasswordPage() {
-  usePageMeta({ title: "Lupa Password", description: "Reset password akun FreshFold." });
+  usePageMeta({ title: "Lupa Password", description: `Reset password akun ${BRAND_NAME}.` });
   const { toast } = useToast();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);

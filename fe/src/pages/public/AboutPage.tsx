@@ -3,13 +3,14 @@ import { usePageMeta } from "@/hooks/use-page-meta";
 import { FadeIn } from "@/components/public/FadeIn";
 import { SectionHeading } from "@/components/public/SectionHeading";
 import { Card, CardContent } from "@/components/ui/card";
+import { BRAND_FULL_NAME, BRAND_NAME } from "@/lib/brand";
 
 const CERTS = ["ISO 9001 Proses Cuci", "Eco Detergent Certified", "Partner Hotel 4★"];
 
 export function AboutPage() {
   usePageMeta({
     title: "Tentang Kami",
-    description: "Profil FreshFold Laundry, visi misi, pengalaman, dan tim profesional.",
+    description: `Profil ${BRAND_FULL_NAME}, visi misi, pengalaman, dan tim profesional.`,
   });
 
   return (
@@ -20,7 +21,7 @@ export function AboutPage() {
             align="left"
             eyebrow="Tentang"
             title="Mencuci dengan standar profesional sejak 2018"
-            description="FreshFold lahir dari visi membuat laundry tradisional menjadi pengalaman digital yang rapi, cepat, dan terpercaya."
+            description={`${BRAND_NAME} lahir dari visi membuat laundry tradisional menjadi pengalaman digital yang rapi, cepat, dan terpercaya.`}
           />
         </FadeIn>
 
