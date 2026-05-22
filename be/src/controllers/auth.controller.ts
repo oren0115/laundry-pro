@@ -2,7 +2,7 @@ import type { Response } from "express";
 import bcrypt from "bcryptjs";
 import { v4 as uuidv4 } from "uuid";
 import { prisma } from "../lib/prisma.js";
-import { signAccessToken, signRefreshToken } from "../utils/jwt.js";
+import { signAccessToken, signRefreshToken, verifyRefreshToken, type TokenPayload } from "../utils/jwt.js";
 import { success, error } from "../utils/apiResponse.js";
 import type { AuthRequest } from "../middleware/auth.middleware.js";
 
@@ -69,15 +69,28 @@ export async function register(req: AuthRequest, res: Response) {
 
 export async function refresh(req: AuthRequest, res: Response) {
   const { refreshToken } = req.body as { refreshToken: string };
-  const stored = await prisma.refreshToken.findUnique({
-    where: { token: refreshToken },
-    include: { user: true },
-  });
-  if (!stored || stored.expiresAt < new Date()) {
+  let payload: TokenPayload;
+  try {
+    payload = verifyRefreshToken(refreshToken);
+  } catch {
     return error(res, "Refresh token tidak valid", 401);
   }
-  await prisma.refreshToken.delete({ where: { id: stored.id } });
-  const tokens = await issueTokens(stored.user);
+
+  const { count } = await prisma.refreshToken.deleteMany({
+    where: { token: refreshToken, expiresAt: { gt: new Date() } },
+  });
+  if (count === 0) {
+    return error(res, "Refresh token tidak valid", 401);
+  }
+
+  const user = await prisma.user.findUnique({
+    where: { id: payload.userId, deletedAt: null },
+  });
+  if (!user || !user.isActive) {
+    return error(res, "Refresh token tidak valid", 401);
+  }
+
+  const tokens = await issueTokens(user);
   return success(res, tokens, "Token diperbarui");
 }
 
